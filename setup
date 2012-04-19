@@ -1,0 +1,10 @@
+#!/bin/bash -eux
+
+die() { echo $*; exit -1; }
+
+[ "$(which vagrant)" ] || die "No vagrant"
+
+time vagrant box add puppet-centos-56-64 http://puppetlabs.s3.amazonaws.com/pub/centos56_64.box
+rm -f Vagrantfile 
+time vagrant init puppet-centos-56-64
+vagrant up
