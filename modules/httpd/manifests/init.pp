@@ -11,8 +11,10 @@ class httpd {
   }
 
   file { 'index.html':
-      path   => '/var/www/index.html',
+      path   => '/var/www/html/index.html',
       ensure => file,
       require => Package['httpd'],
       source  => 'puppet:///modules/httpd/index.html',
+  }
+
 }
